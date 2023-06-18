@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+}
+
+
+
+.header-main{
+    z-index: 999;
+    display: flex;
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    & a{
+        font-size: 2rem;
+        font-weight: 200;
+    }
+}
+
+.modal-wrapper{
+    position: fixed;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: antiquewhite;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.modal-actual{
+    width: min(320px, 95vw );
+    background-color: inherit;
+
+    & *{
+        width: 100%;
+        margin: .5rem;
+    }
+
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.article-cover{
+    height: 500px;
+    width: min(20rem, 90vw);
+}
+
+
+article{
+    height: 500px;
+    width: min(20rem, 90vw);
+    margin: 1rem;
+    overflow: hidden;
+    border-radius: .5rem;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+
+    & img{
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    & h2{
+        position: absolute;
+        z-index: 10;
+        font-weight: 200;
+        bottom: .5rem;
+        text-align: center;
+        margin: auto;
+        width: 100%;
+        border-top: 1px solid currentColor;
+        padding: .5rem;
+        
+    }
+
+    
+}
+
+.add-button{
+    padding: 0;
+    background-color: none;
+    border: none;
+    background-color: transparent;
+    color: currentColor;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+
+
