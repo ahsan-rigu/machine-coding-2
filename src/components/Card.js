@@ -19,7 +19,7 @@ const Card = ({
       ) : (
         <div className="article-content">
           <h2>{title}</h2>
-          <p>Description: {description}</p>
+          <p className="description">Description: {description}</p>
           <p>Starting: {starting}</p>
           <p>Goal: {goal}</p>
           <p>Time: {time}</p>

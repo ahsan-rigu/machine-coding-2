@@ -24,38 +24,42 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.toggleWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  overflow: hidden;
-  padding: 0 200px;
-  transform: translate3d(-50%, -50%, 0);
-  color: white;
+.habits-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .toggleWrapper input {
   position: absolute;
   left: -99em;
 }
 
+.archived-link{
+  margin-left: auto;
+}
+
 .toggle {
+  margin: -.5rem;
+  transform: scale(.5);
   cursor: pointer;
   display: inline-block;
   position: relative;

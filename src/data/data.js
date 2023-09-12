@@ -1,7 +1,7 @@
 export const habits = [
   {
     _id: "asdasd",
-    title: "Dring Water",
+    title: "Drink Water",
     description: "Water is 70% bla bla bla",
     starting: "Today",
     goal: "4 liters",

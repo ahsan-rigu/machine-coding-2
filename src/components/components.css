@@ -19,6 +19,10 @@
     }
 }
 
+*{
+    background-color: inherit;
+}
+
 .modal-wrapper{
     position: fixed;
     display: grid;
@@ -26,11 +30,13 @@
     align-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: antiquewhite;
+    background-color: inherit;
     top: 0;
     left: 0;
     z-index: 99;
 }
+
+
 
 .modal-actual{
     width: min(320px, 95vw );
@@ -38,7 +44,23 @@
 
     & *{
         width: 100%;
-        margin: .5rem;
+        margin-top: .75rem;
+
+    }
+
+
+    & input{
+        padding: .5rem;
+        border: 1px solid rgba(122, 122, 122, 0.651);
+        border-radius: .5rem;
+        margin-bottom: .5rem;
+    }
+
+    & button{
+        background-color: white;
+        padding: .5rem;
+        border-radius: .5rem;
+        border: none;
     }
 
 }
@@ -61,7 +83,7 @@ article{
     border-radius: .5rem;
     position: relative;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
+    border: 1px solid rgba(188, 188, 188, 0.354);
 
     & img{
         max-width: 100%;
@@ -78,11 +100,51 @@ article{
         margin: auto;
         width: 100%;
         border-top: 1px solid currentColor;
+        border-bottom: 1px solid currentColor;
         padding: .5rem;
+        background-color: white;
+        color: black;
+        
         
     }
 
     
+}
+
+.article-cover{
+    background-size: contain;
+    background-image: url("https://cdn.pixabay.com/photo/2019/04/28/09/20/the-little-things-of-life-4162499_1280.jpg");
+}
+
+.article-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    height: calc(100% - 3rem);
+}
+
+.article-content button{
+    background-color: white;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.article-content h2{
+    position: relative;
+    left: -1rem;
+    top: 102%;
+    width: 120%;
+}
+
+.article-content button:first-of-type{
+    margin-top: auto;
+}   
+
+.article-content>*{
+    margin: 0;
 }
 
 .add-button{
@@ -94,6 +156,7 @@ article{
     position: fixed;
     bottom: 1rem;
     right: 1rem;
+    z-index: 999;
     cursor: pointer;
 }
 

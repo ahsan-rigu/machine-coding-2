@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { HabitsContext } from "../contexts/HabitsContext";
 
 const CreateEditModal = ({ _id, setAddModal }) => {
-  const { dispatchHabitsData } = useContext(HabitsContext);
+  const { dispatchHabitsData, habitsData } = useContext(HabitsContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [starting, setStarting] = useState("");
@@ -13,14 +13,7 @@ const CreateEditModal = ({ _id, setAddModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (!img) {
-      setImg(
-        "https://cdn.pixabay.com/photo/2019/04/28/09/20/the-little-things-of-life-4162499_1280.jpg"
-      );
-    }
     if (!_id) {
-      console.log("asdsa");
       dispatchHabitsData({
         type: "ADD_HABBIT",
         payload: {
@@ -50,21 +43,38 @@ const CreateEditModal = ({ _id, setAddModal }) => {
     setAddModal(false);
   };
 
+  useEffect(() => {
+    if (_id) {
+      const habit = habitsData.find(({ _id: id }) => id === _id);
+      console.log(habit);
+      if (habit) {
+        setTitle(habit.title);
+        setDescription(habit.description);
+        setStarting(habit.starting);
+        setGoal(habit.goal);
+        setTime(habit.time);
+        setImg(habit.img);
+      }
+    }
+  }, [_id, habitsData]);
+
   return (
     <div className="modal-wrapper">
       <section className="modal-actual">
         <form onSubmit={handleSubmit}>
           <label>
-            Whats The goal called
+            Whats The goal:
             <input
               placeholder="title"
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
             ></input>
           </label>
           <label>
-            Write something about it
+            Write something about it:
             <input
+              value={description}
               placeholder="description"
               onChange={(e) => setDescription(e.target.value)}
               required
@@ -73,30 +83,34 @@ const CreateEditModal = ({ _id, setAddModal }) => {
           <label>
             When do you start?
             <input
+              value={starting}
               placeholder="starting"
               onChange={(e) => setStarting(e.target.value)}
               required
             ></input>
           </label>
           <label>
-            Whats your goal
+            Whats the intensity?
             <input
+              value={goal}
               placeholder="goal"
               onChange={(e) => setGoal(e.target.value)}
               required
             ></input>
           </label>
           <label>
-            How much time do you want to put in
+            How much time per day?
             <input
+              value={time}
               placeholder="time"
               onChange={(e) => setTime(e.target.value)}
               required
             ></input>
           </label>
           <label>
-            Paste an image url to motivate you
+            Paste an image url to motivate you:
             <input
+              value={img}
               placeholder="image"
               onChange={(e) => setImg(e.target.value)}
             ></input>

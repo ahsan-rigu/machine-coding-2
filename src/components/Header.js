@@ -7,6 +7,9 @@ const Header = () => {
   return (
     <header className="header-main">
       <Link to="/">HABITIFY</Link>
+      <Link to="/archived" className="archived-link">
+        <BsArchiveFill size={"2rem"} />
+      </Link>
       <div class="toggleWrapper">
         <input type="checkbox" class="dn" id="dn" />
         <label for="dn" class="toggle" title="copy pasted">
@@ -23,9 +26,6 @@ const Header = () => {
           <span class="star star--6"></span>
         </label>
       </div>
-      <Link to="/archived">
-        <BsArchiveFill size={"2rem"} />
-      </Link>
     </header>
   );
 };

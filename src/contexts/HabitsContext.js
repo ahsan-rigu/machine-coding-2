@@ -13,6 +13,7 @@ const HabitsContextProvider = ({ children }) => {
       case "EDIT_HABBIT": {
         const index = state.findIndex(({ _id }) => _id === payload._id);
         state[index] = payload;
+        return [...state];
       }
       case "ARCHIVE": {
         const index = state.findIndex(({ _id }) => _id === payload._id);
